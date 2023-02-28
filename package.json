@@ -1,11 +1,11 @@
 {
-  "name": "redis-rate-limiter",
-  "version": "1.2.0",
+  "name": "node-redis-rate-limiter",
+  "version": "1.2.1",
   "description": "Rate-limit any operation, backed by Redis",
-  "author": "Tabcorp Digital Team",
+  "author": "Scratch Foundation",
   "license": "MIT",
   "main": "lib/index.js",
-  "repository": "Tabcorp/redis-rate-limiter",
+  "repository": "scratchfoundation/node-redis-rate-limiter",
   "scripts": {
     "lint": "require-lint",
     "test": "mocha"

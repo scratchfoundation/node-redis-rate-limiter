@@ -1,12 +1,7 @@
-# redis-rate-limiter
+# node-redis-rate-limiter
 
-[![NPM](http://img.shields.io/npm/v/redis-rate-limiter.svg?style=flat)](https://npmjs.org/package/redis-rate-limiter)
-[![License](http://img.shields.io/npm/l/redis-rate-limiter.svg?style=flat)](https://github.com/Tabcorp/redis-rate-limiter)
-
-[![Build Status](http://img.shields.io/travis/Tabcorp/redis-rate-limiter.svg?style=flat)](http://travis-ci.org/Tabcorp/redis-rate-limiter)
-[![Dependencies](http://img.shields.io/david/Tabcorp/redis-rate-limiter.svg?style=flat)](https://david-dm.org/Tabcorp/redis-rate-limiter)
-[![Dev dependencies](http://img.shields.io/david/dev/Tabcorp/redis-rate-limiter.svg?style=flat)](https://david-dm.org/Tabcorp/redis-rate-limiter)
-[![Known Vulnerabilities](https://snyk.io/package/npm/redis-rate-limiter/badge.svg)](https://snyk.io/package/npm/redis-rate-limiter)
+Forked from [](https://github.com/Tabcorp/redis-rate-limiter)
+[![License](http://img.shields.io/npm/l/redis-rate-limiter.svg?style=flat)](https://github.com/scratchfoundation/node-redis-rate-limiter)
 
 Rate-limit any operation, backed by Redis.
 
@@ -14,6 +9,7 @@ Rate-limit any operation, backed by Redis.
 - But uses a fixed-window algorithm
 - Great performance (>10000 checks/sec on local redis)
 - No race conditions
+- Configuration of status return to avoid giving away the game with a 429, when appropriate
 
 Very easy to plug into `Express` or `Restify` to rate limit your `Node.js` API.
 
@@ -29,7 +25,7 @@ var client = redis.createClient(6379, 'localhost', {enable_offline_queue: false}
 Step 2: create your rate limiter
 
 ```js
-var rateLimiter = require('redis-rate-limiter');
+var rateLimiter = require('node-redis-rate-limiter');
 var limit = rateLimiter.create({
   redis: client,
   key: function(x) { return x.id },
@@ -144,12 +140,13 @@ which takes the same options
 
 
 ```js
-var rateLimiter = require('redis-rate-limiter');
+var rateLimiter = require('node-redis-rate-limiter');
 
 var middleware = rateLimiter.middleware({
   redis: client,
   key: 'ip',
-  rate: '100/minute'
+  rate: '100/minute',
+  status: 200
 });
 
 server.use(middleware);
