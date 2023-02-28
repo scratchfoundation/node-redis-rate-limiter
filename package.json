@@ -5,7 +5,10 @@
   "author": "Scratch Foundation",
   "license": "MIT",
   "main": "lib/index.js",
-  "repository": "scratchfoundation/node-redis-rate-limiter",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scratchfoundation/node-redis-rate-limiter.git"
+  },
   "scripts": {
     "lint": "require-lint",
     "test": "mocha"
@@ -23,5 +26,21 @@
     "require-lint": "^2.0.2",
     "should": "^13.1.3",
     "supertest": "^4.0.2"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/scratchfoundation/node-redis-rate-limiter/issues"
+  },
+  "homepage": "https://github.com/scratchfoundation/node-redis-rate-limiter#readme",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "keywords": [
+    "Configurable",
+    "rate",
+    "limiter",
+    "backed",
+    "by",
+    "redis"
+  ]
 }
