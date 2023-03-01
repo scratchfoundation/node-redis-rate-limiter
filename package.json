@@ -1,6 +1,6 @@
 {
   "name": "node-redis-rate-limiter",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "Rate-limit any operation, backed by Redis",
   "author": "Scratch Foundation",
   "license": "MIT",
